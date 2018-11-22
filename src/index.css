@@ -1,0 +1,16 @@
+.tic-tac-toe {
+  text-align: center;
+  font-family: Ubuntu;
+}
+
+.tic-tac-toe table {
+  font-size: 32px;
+  font-weight: bold;
+  border: 2px bold;
+}
+
+.tic-tac-toe td {
+  width: 64px;
+  height: 64px;
+  background: #afafaf;
+}
