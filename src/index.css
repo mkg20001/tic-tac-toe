@@ -1,12 +1,16 @@
 .tic-tac-toe {
   text-align: center;
-  font-family: Ubuntu;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .tic-tac-toe table {
   font-size: 32px;
   font-weight: bold;
   border: 2px bold;
+  align-self: center;
 }
 
 .tic-tac-toe td {

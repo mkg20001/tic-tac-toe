@@ -9,6 +9,15 @@ const set = require('dset').default
 
 const compVals = (ar, gf) => {
   ar = ar.map(gf)
+  return ar.reduce((state, next) => {
+    if (!state) {
+      return state
+    }
+    if (state !== next) {
+      return false
+    }
+    return next
+  })
 }
 
 class Field {
@@ -30,18 +39,7 @@ class Field {
       return val + ' has already placed his mark here'
     }
     set(this.data, where, what)
-    /* where = where.split('.').map(i => parseInt(i, 10)).map(i => i)
-    const val = where.reduce((ar, key) => ar[key], this.data)
-    if (val != null) {
-      return val + ' has already placed his mark here'
-    }
-    let lk = where.pop()
-    where.reduce((ar, key) => ar[key], this.data)[lk] = val */
   }
-  /* get (where) {
-    where = where.split('.').map(i => parseInt(i, 10))
-    return where.reduce((ar, key) => ar[key], this.data)
-  } */
   getWinner () {
     let w
     for (let i = 0; i < 3; i++) {
@@ -56,10 +54,18 @@ class Field {
     w = compVals(this.data, (v, i) => v[2 - i]) // right to left top to bottom accross
     if (w) return w
   }
+  hasEmptyFields () {
+    return Boolean(
+      this.data.filter(row =>
+        row.filter(col => !col).length).length
+    )
+  }
   msg () {
     if (this.le) return this.le
     if (this.getWinner()) {
       return this.getWinner() + ' has won'
+    } else if (!this.hasEmptyFields()) {
+      return 'It\'s a draw'
     } else {
       return 'It\'s ' + this.player + '\'s turn!'
     }
@@ -74,7 +80,7 @@ class Field {
   }
   handler (row, col) {
     const where = `${row}.${col}`
-    if (!this.getWinner()) {
+    if (!this.getWinner() && this.hasEmptyFields()) {
       this.le = this.place(this.player, where)
       if (!this.le) {
         this.player = SWITCH[this.player]
