@@ -36,7 +36,7 @@ class Field {
   place (what, where) {
     const val = get(this.data, where)
     if (val != null) {
-      return val + ' has already placed his mark here'
+      return val + ' has already placed their mark here'
     }
     set(this.data, where, what)
   }
@@ -73,7 +73,7 @@ class Field {
   toHTML () {
     return `<div class="tic-tac-toe"><table>
       ${this.data.map((row, rowI) => `<tr>${row.map((col, colI) => `<td onclick="window[${hstr(this.idf)}](${rowI}, ${colI})">${col || ''}</td>`).join('')}</tr>`).join('')}
-    </table><br><h2>${this.msg()}</h2></div>`
+    </table><br><h2>${this.msg()}</h2><button onclick="window.startGame()">Reset</button></div>`
   }
   redraw () {
     this.draw(this.toHTML())

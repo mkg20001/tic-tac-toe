@@ -18,3 +18,13 @@
   height: 64px;
   background: #afafaf;
 }
+
+.tic-tac-toe button {
+  max-width: 128px;
+  align-self: center;
+  padding: 8px;
+  background: #afafafaf;
+  border: none;
+  border-radius: 6px;
+  color: #020202;
+}

@@ -8,3 +8,5 @@ function startGame () {
 }
 
 startGame()
+
+window.startGame = startGame
