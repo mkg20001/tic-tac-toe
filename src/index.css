@@ -22,9 +22,10 @@
 .tic-tac-toe button {
   max-width: 128px;
   align-self: center;
-  padding: 8px;
+  padding: 8px 12px;
   background: #afafafaf;
   border: none;
   border-radius: 6px;
   color: #020202;
+  font-family: 'Press Start 2P', cursive;
 }
