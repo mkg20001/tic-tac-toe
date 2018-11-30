@@ -4,4 +4,4 @@ set -e
 
 rm -rf dist
 
-npx parcel build src/index.html
+npx parcel build --public-url ./ src/index.html

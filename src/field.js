@@ -1,7 +1,5 @@
 'use strict'
 
-const crypto = require('crypto')
-
 const SWITCH = {X: 'O', O: 'X'}
 const hstr = (v) => JSON.stringify(v).replace(/"/g, "'")
 const get = require('dlv')
@@ -22,7 +20,7 @@ const compVals = (ar, gf) => {
 
 class Field {
   constructor (draw) {
-    this.idf = crypto.randomBytes(16).toString('hex').replace(/^[0-9]/, 'a')
+    this.idf = 'a' + String(Math.random()).replace(/[^0-9]/g, '')
     this.data = [
       [null, null, null],
       [null, null, null],
