@@ -16,4 +16,4 @@ var e,t=arguments[3],n=require("process");!function(e,t){"use strict";"object"==
 },{"process":"pBGv"}],"Focm":[function(require,module,exports) {
 "use strict";var e=require("./field"),r=require("jquery");function i(){window.Field=new e(function(e){return r(".root").html(e)})}i(),window.startGame=i;
 },{"./field":"daBI","jquery":"juYr"}]},{},["Focm"], null)
-//# sourceMappingURL=/src.3727e67e.map
+//# sourceMappingURL=src.3727e67e.map
